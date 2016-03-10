@@ -2,7 +2,11 @@ package custom.fmt.com.mycustomview.views;/**
  * Created by hasee-pc on 2016/3/10.
  */
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -10,87 +14,195 @@ import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
+import custom.fmt.com.mycustomview.R;
+
 /**
  * User:FMT
  * Email:1105896230@qq.com
  * DATA:2016/3/10
  * Time:22:31
- *
+ *从该网站下过来 然后对着敲的
+ * http://download.csdn.net/detail/u012403246/8373157#comment
  */
 public class RevealLayout extends LinearLayout implements Runnable {
+    private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+    private float mCenterX, mCenterY;
+
+    private int[] mLocation = new int[2];
 
     private int INVALIDATE_DURATION = 40;
+    private int mTargetHeight, mTargetWidth;
+    private int mRevealRadius = 0, mRevealRadiusGap, mMaxRadius;
+    private int mMinBetweenWidthAndHeight, mMaxBetweenWidthAndHeight;
 
-    private boolean mIsPressed = false;
+    private boolean mIsPressed;
+    private boolean mShouldDoAnimation;
+
+    private View mTargetView;
+    private DispatchUpTouchEventRunnable mDispatchUpTouchEventRunnable = new DispatchUpTouchEventRunnable();
 
     public RevealLayout(Context context) {
-        this(context, null);
+        super(context);
+        init();
     }
 
     public RevealLayout(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
+        init();
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public RevealLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    public void init() {
+        setWillNotDraw(false);
+        mPaint.setColor(getResources().getColor(R.color.reveal_color));
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+        this.getLocationOnScreen(mLocation);
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+
+        if (mTargetView == null || !mShouldDoAnimation || mTargetWidth <= 0) return;
+
+        if (mRevealRadius > mMinBetweenWidthAndHeight / 2) { mRevealRadius += mRevealRadiusGap * 4; } else {
+            mRevealRadius += mRevealRadiusGap;
+        }
+
+        int[] location = new int[2];
+        this.getLocationOnScreen(mLocation);
+        mTargetView.getLocationOnScreen(location);
+
+        int top = location[1] - mLocation[1];
+        int left = location[0] - mLocation[0];
+        int right = left + mTargetView.getMeasuredWidth();
+        int bottom = top + mTargetView.getMeasuredHeight();
+
+        canvas.save();
+        canvas.clipRect(left, top, right, bottom);
+        canvas.drawCircle(mCenterX, mCenterY, mRevealRadius, mPaint);
+        canvas.restore();
+
+        if (mRevealRadius <= mMaxRadius) {
+            postInvalidateDelayed(INVALIDATE_DURATION, left, top, right, bottom);
+        } else if (!mIsPressed) {
+            mShouldDoAnimation = false;
+            postInvalidateDelayed(INVALIDATE_DURATION, left, top, right, bottom);
+        }
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        int x = (int) event.getRawX();
+        int y = (int) event.getRawY();
+        int action = event.getAction();
+
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+                View targetView = getTargetView(this, x, y);
+
+                if (targetView != null && targetView.isEnabled()) {
+                    mTargetView = targetView;
+                    initParametersForChild(event, targetView);
+                    postInvalidateDelayed(INVALIDATE_DURATION);
+                }
+                break;
+
+            case MotionEvent.ACTION_UP:
+                mIsPressed = false;
+                postInvalidateDelayed(INVALIDATE_DURATION);
+                mDispatchUpTouchEventRunnable.event = event;
+                postDelayed(mDispatchUpTouchEventRunnable, 40);
+                break;
+
+            case MotionEvent.ACTION_CANCEL:
+                mIsPressed = false;
+                postInvalidateDelayed(INVALIDATE_DURATION);
+                break;
+        }
+        return super.dispatchTouchEvent(event);
+    }
+
+    public View getTargetView(View view, int x, int y) {
+        View target = null;
+        ArrayList<View> views = view.getTouchables();
+
+        for (View child : views)
+            if (isTouchPointInView(child, x, y)) {
+                target = child;
+                break;
+            }
+        return target;
+    }
+
+    public boolean isTouchPointInView(View child, int x, int y) {
+        int[] location = new int[2];
+        child.getLocationOnScreen(location);
+
+        int top = location[1];
+        int left = location[0];
+        int right = left + child.getMeasuredWidth();
+        int bottom = top + child.getMeasuredHeight();
+
+        if (child.isClickable() && y >= top && y <= bottom && x >= left && x <= right) { return true; } else {
+            return false;
+        }
+    }
+
+    public void initParametersForChild(MotionEvent event, View view) {
+        mCenterX = event.getX();
+        mCenterY = event.getY();
+        mTargetWidth = view.getMeasuredWidth();
+        mTargetHeight = view.getMeasuredHeight();
+        mMinBetweenWidthAndHeight = Math.min(mTargetWidth, mTargetHeight);
+        mMaxBetweenWidthAndHeight = Math.max(mTargetWidth, mTargetHeight);
+
+        mRevealRadius = 0;
+        mRevealRadiusGap = mMinBetweenWidthAndHeight / 8;
+
+        mIsPressed = true;
+        mShouldDoAnimation = true;
+
+        int[] location = new int[2];
+        view.getLocationOnScreen(location);
+
+        int left = location[0] - mLocation[0];
+        int mTransformedCenterX = (int) mCenterX - left;
+        mMaxRadius = Math.max(mTransformedCenterX, mTargetWidth - mTransformedCenterX);
     }
 
     @Override
     public void run() {
-
+        super.performClick();
     }
 
     @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        int x = (int) ev.getRawX();
-        int y = (int) ev.getRawY();
-        int action = ev.getAction();
-        if (action == MotionEvent.ACTION_DOWN) {
-            View view = getTouchTarget(this, x, y);
-            if (view.isClickable() && view.isEnabled()) {
-                //获取到点击到的view
-                View mTouchTarget = view;
-            }
-        } else if (action == MotionEvent.ACTION_UP) {
-
-        } else if (action == MotionEvent.ACTION_CANCEL) {
-            mIsPressed = false;
-            postInvalidateDelayed(INVALIDATE_DURATION);
-        }
-        return super.dispatchTouchEvent(ev);
+    public boolean performClick() {
+        postDelayed(this, 40);
+        return true;
     }
 
-    //获取可触碰到所以view
-    private View getTouchTarget(View view, int x, int y) {
-        View target = null;
-        ArrayList<View> touchables = view.getTouchables();
+    private class DispatchUpTouchEventRunnable implements Runnable {
+        public MotionEvent event;
 
-        for (View chilid : touchables) {
-            if (isTouchPointInView(chilid, x, y)) {
-                target = chilid;
-                break;
+        @Override
+        public void run() {
+            if (mTargetView.isEnabled() && mTargetView.isClickable()) return;
+
+            if (isTouchPointInView(mTargetView, (int) event.getRawX(), (int) event.getRawX())) {
+                mTargetView.performClick();
             }
         }
-        return target;
-    }
-
-    //判断view是否被点击到
-    private boolean isTouchPointInView(View view, int x, int y) {
-        int[] location = new int[2];
-        //view 位于整个屏幕的坐标
-        view.getLocationOnScreen(location);
-        int left = location[0];
-        int top = location[1];
-        int right = left + view.getMeasuredWidth();
-        int bottom = top + view.getMeasuredHeight();
-        if (view.isClickable() && y >= top && y <= bottom && x >= left && x <= right) {
-            return true;
-        }
-        return false;
-    }
-
-    public void initParametersForChild(MotionEvent event, View view) {
-        int x = (int) event.getX();
-        int y = (int) event.getY();
     }
 }
+

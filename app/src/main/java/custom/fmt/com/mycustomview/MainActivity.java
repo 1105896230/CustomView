@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import custom.fmt.com.mycustomview.zhujie.ContentView;
+import custom.fmt.com.mycustomview.zhujie.OnClick;
 import custom.fmt.com.mycustomview.zhujie.ViewInject;
 import custom.fmt.com.mycustomview.zhujie.ViewInjectUtils;
 
@@ -19,11 +20,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ViewInjectUtils.inject(this);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
+
+    @OnClick({R.id.iv})
+    public void OnBindCLick(View view) {
+        switch (view.getId()) {
+            case R.id.iv:
                 Toast.makeText(MainActivity.this, "注解成功", Toast.LENGTH_SHORT).show();
-            }
-        });
+                break;
+        }
     }
 }

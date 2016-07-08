@@ -1,9 +1,12 @@
 package custom.fmt.com.mycustomview.zhujie;
 
 import android.app.Activity;
+import android.view.View;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 /**
  * Created by 林其望
@@ -58,5 +61,47 @@ public class ViewInjectUtils {
 
         injectContentView(activity);
         injectViews(activity);
+        injectClick(activity);
+    }
+
+    private static void injectClick(Activity activity) {
+        Class<?> clazz = activity.getClass();
+        Method[] methods = clazz.getMethods();
+        for (Method method : methods) {
+//           方法的注解可能有很多
+            Annotation[] annotations = method.getAnnotations();
+            //拿到方法上的所有的注解
+            for (Annotation annotation : annotations) {
+                Class<? extends Annotation> annotationType = annotation.annotationType();
+//                拿到注解上的注解
+                EventBase eventBase = annotationType.getAnnotation(EventBase.class);
+                if (eventBase != null) {
+//                    将监听器的名字监听的类型和方法名字拿出
+                    Class<?> listenerType = eventBase.linsterType();
+                    String listenerSetter = eventBase.listernSetter();
+                    String methodname = eventBase.methodname();
+                    try {
+//                        拿到OnClick注解中的value方法
+                        Method aMethod = annotationType.getDeclaredMethod("value");
+                        //取出所有的viewId
+                        int[] viewIds = (int[]) aMethod.invoke(annotation, null);
+//                        设置代理
+                        DynamicHandler handler = new DynamicHandler(activity);
+                        handler.addMethod(methodname, method);
+                        Object listener = Proxy.newProxyInstance(listenerType.getClassLoader(),
+                                new Class<?>[]{listenerType}, handler);
+                        //遍历所有的View，设置事件
+                        for (int viewId : viewIds) {
+                            View view = activity.findViewById(viewId);
+                            Method setEventListenerMethod = view.getClass()
+                                    .getMethod(listenerSetter, listenerType);
+                            setEventListenerMethod.invoke(view, listener);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 }

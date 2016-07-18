@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
-
+    buildToolsVersion "23.0.3"
+    dataBinding {
+        enabled true
+    }
     defaultConfig {
-        applicationId "custom.fmt.com.mycustomview"
+        applicationId "com.hotel.sf.databinddemo"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
@@ -17,14 +18,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'la.dahuo:command:1.0.0'
-    apt 'la.dahuo:command-codegen:1.0.0'
-    compile 'com.squareup:javapoet:1.4.0'
-    compile files('lib/javax.annotation_1.1.0.v201105051105.jar')
+    compile 'com.android.support:appcompat-v7:23.4.0'
 }

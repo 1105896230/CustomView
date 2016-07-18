@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Proxy;
+
 import custom.fmt.com.mycustomview.zhujie.ContentView;
 import custom.fmt.com.mycustomview.zhujie.OnClick;
 import custom.fmt.com.mycustomview.zhujie.ViewInject;
@@ -19,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewInjectUtils.inject(this);
+//        ViewInjectUtils.inject(this);
     }
 
     @OnClick({R.id.iv})

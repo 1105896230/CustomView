@@ -10,9 +10,10 @@ import android.os.Parcelable;
  * data：2016/7/18
  * email: 1105896230@qq.com
  */
-public class User extends BaseObservable implements Parcelable{
+public class User extends BaseObservable implements Parcelable {
     private String firstName;
     private String lastName;
+    public final String defalutName = "我是小名";
 
     public User(String firstName, String lastName) {
         this.firstName = firstName;

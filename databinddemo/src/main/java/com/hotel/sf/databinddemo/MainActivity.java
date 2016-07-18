@@ -1,6 +1,5 @@
 package com.hotel.sf.databinddemo;
 
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeName(View view) {
-        Intent intent = new Intent(this, SecondActivity.class);
-        startActivity(intent);
+        user.setFirstName(null);
     }
 }

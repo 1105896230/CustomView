@@ -6,9 +6,12 @@
 
         <import type="com.hotel.sf.databinddemo.User" />
 
+        <import type="com.hotel.sf.databinddemo.MyStringUtils" />
+
         <variable
             name="user"
             type="User" />
+
     </data>
 
     <LinearLayout
@@ -19,7 +22,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.firstName}" />
+            android:text="@{user.firstName??user.defalutName}" />
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@{MyStringUtils.capitalize(user.firstName)}" />-->
 
         <Button
             android:layout_width="wrap_content"

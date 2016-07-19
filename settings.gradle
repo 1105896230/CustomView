@@ -1,1 +1,1 @@
-include ':app', ':zhujie', ':databinddemo'
+include ':app', ':zhujie', ':databinddemo', ':databind2'

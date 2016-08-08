@@ -1,1 +1,1 @@
-include ':app', ':zhujie', ':databinddemo', ':databind2', ':recycleviewbigheadanimator'
+include ':app', ':zhujie', ':databinddemo', ':databind2', ':recycleviewbigheadanimator', ':java8demo', ':java8demo'

@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ApplePredicate applePredicate = (Apple apple) -> "red".equals(apple.getColor());
-
 //        ()->Thread.currentThread()::getName
 //        ()->423
 //        (Apple e)->e.getWeight()>50

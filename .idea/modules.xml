@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CustomView.iml" filepath="$PROJECT_DIR$/CustomView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amsdemo/amsdemo.iml" filepath="$PROJECT_DIR$/amsdemo/amsdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/databind2/databind2.iml" filepath="$PROJECT_DIR$/databind2/databind2.iml" />
       <module fileurl="file://$PROJECT_DIR$/databinddemo/databinddemo.iml" filepath="$PROJECT_DIR$/databinddemo/databinddemo.iml" />

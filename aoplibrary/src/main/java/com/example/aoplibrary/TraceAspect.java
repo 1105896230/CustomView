@@ -14,16 +14,18 @@ import org.aspectj.lang.reflect.MethodSignature;
 @Aspect
 public class TraceAspect {
     private static final String POINTCUT_METHOD =
-            "execution(@org.android10.gintonic.annotation.DebugTrace * *(..))";
+            "execution(@com.example.aoplibrary.DebugTrace * *(..))";
 
     private static final String POINTCUT_CONSTRUCTOR =
-            "execution(@org.android10.gintonic.annotation.DebugTrace *.new(..))";
+            "execution(@com.example.aoplibrary.DebugTrace *.new(..))";
 
     @Pointcut(POINTCUT_METHOD)
-    public void methodAnnotatedWithDebugTrace() {}
+    public void methodAnnotatedWithDebugTrace() {
+    }
 
     @Pointcut(POINTCUT_CONSTRUCTOR)
-    public void constructorAnnotatedDebugTrace() {}
+    public void constructorAnnotatedDebugTrace() {
+    }
 
     @Around("methodAnnotatedWithDebugTrace() || constructorAnnotatedDebugTrace()")
     public Object weaveJoinPoint(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -44,7 +46,7 @@ public class TraceAspect {
     /**
      * Create a log message.
      *
-     * @param methodName A string with the method name.
+     * @param methodName     A string with the method name.
      * @param methodDuration Duration of the method in milliseconds.
      * @return A string representing message.
      */

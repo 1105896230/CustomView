@@ -1,6 +1,5 @@
 package com.example.cardviewpager;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         mCardAdapter = new CardViewPagerAdapter();
 
         mViewPager.setAdapter(mCardAdapter);
+        mViewPager.setPageTransformer(false, new CardTranm(mViewPager, mCardAdapter));
     }
 
 }

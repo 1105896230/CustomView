@@ -1,5 +1,7 @@
 package com.example.safedemo;
 
+import android.util.Log;
+
 import java.io.File;
 
 /**
@@ -13,16 +15,19 @@ public class Root {
     private static String LOG_TAG = Root.class.getName();
 
     public boolean isDeviceRooted() {
-        if (checkRootMethod1()) {
-            return true;
+        boolean bool = false;
+
+        try{
+            if ((!new File("/system/bin/su").exists()) && (!new File("/system/xbin/su").exists())){
+                bool = false;
+            } else {
+                bool = true;
+            }
+            Log.d(LOG_TAG, "bool = " + bool);
+        } catch (Exception e) {
+
         }
-        if (checkRootMethod2()) {
-            return true;
-        }
-        if (checkRootMethod3()) {
-            return true;
-        }
-        return false;
+        return bool;
     }
 
     public boolean checkRootMethod1() {

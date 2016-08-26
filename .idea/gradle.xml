@@ -3,9 +3,8 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="distributionType" value="LOCAL" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="C:\android-studio\gradle\gradle-2.14.1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -19,6 +18,7 @@
             <option value="$PROJECT_DIR$/java8demo" />
             <option value="$PROJECT_DIR$/java8demo2" />
             <option value="$PROJECT_DIR$/recycleviewbigheadanimator" />
+            <option value="$PROJECT_DIR$/safedemo" />
             <option value="$PROJECT_DIR$/zhujie" />
           </set>
         </option>

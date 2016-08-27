@@ -15,9 +15,22 @@
         android:layout_height="wrap_content"
         android:onClick="sendMessage"
         android:text="发送短信" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="install"
         android:text="静默安装" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="telephone"
+        android:text="电话拨打" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="hone"
+        android:text="电话监听" />
 </LinearLayout>

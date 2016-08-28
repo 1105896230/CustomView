@@ -7,6 +7,13 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * Created by "林其望".
  * DATE: 2016:08:28:22:49
@@ -49,5 +56,29 @@ public class MyApplication extends Application {
 
         }
         return false;
+    }
+
+    public boolean isCheck(int pid, String pkg) {
+        File file = new File("/proc/" + pid + "/maps");
+        if (!file.exists()) {
+            return false;
+        }
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+            String lineString = null;
+
+            while ((lineString = bufferedReader.readLine()) != null) {
+                String trim = lineString.trim();
+                if (trim.contains("/data/data") && !trim.contains("/data/data/" + pkg)) {
+                    return false;
+                }
+            }
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 }

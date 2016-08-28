@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ndkproject">
 
+    <permission
+        android:name="com.example.ndkproject.MY_PERSSION"
+        android:protectionLevel="signature" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,7 +25,15 @@
             android:name=".PublicActivity"
             android:exported="true"
             android:label="@string/title_activity_public"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PartnerActivity"
+            android:exported="true" />
+        <activity android:name=".PartneruserAcitvity" />
+        <activity
+            android:name=".InhouseActivity"
+            android:exported="true"
+            android:permission="com.example.ndkproject.MY_PERSSION" />
     </application>
 
 </manifest>

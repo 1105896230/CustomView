@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ndkproject</string>
+    <string name="title_activity_public">PublicActivity</string>
 </resources>

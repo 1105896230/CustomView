@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/aoplibrary/aoplibrary.iml" filepath="$PROJECT_DIR$/aoplibrary/aoplibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cardviewpager/cardviewpager.iml" filepath="$PROJECT_DIR$/cardviewpager/cardviewpager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/creditsesameringview/creditsesameringview.iml" filepath="$PROJECT_DIR$/creditsesameringview/creditsesameringview.iml" />
       <module fileurl="file://$PROJECT_DIR$/databind2/databind2.iml" filepath="$PROJECT_DIR$/databind2/databind2.iml" />
       <module fileurl="file://$PROJECT_DIR$/databinddemo/databinddemo.iml" filepath="$PROJECT_DIR$/databinddemo/databinddemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/java8demo/java8demo.iml" filepath="$PROJECT_DIR$/java8demo/java8demo.iml" />

@@ -16,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/ndkproject/ndkproject.iml" filepath="$PROJECT_DIR$/ndkproject/ndkproject.iml" />
       <module fileurl="file://$PROJECT_DIR$/recycleviewbigheadanimator/recycleviewbigheadanimator.iml" filepath="$PROJECT_DIR$/recycleviewbigheadanimator/recycleviewbigheadanimator.iml" />
       <module fileurl="file://$PROJECT_DIR$/safedemo/safedemo.iml" filepath="$PROJECT_DIR$/safedemo/safedemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/smartmenu/smartmenu.iml" filepath="$PROJECT_DIR$/smartmenu/smartmenu.iml" />
       <module fileurl="file://$PROJECT_DIR$/zhujie/zhujie.iml" filepath="$PROJECT_DIR$/zhujie/zhujie.iml" />
     </modules>
   </component>

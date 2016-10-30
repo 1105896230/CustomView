@@ -1,1 +1,1 @@
-include ':app', ':zhujie', ':databinddemo', ':databind2', ':recycleviewbigheadanimator', ':java8demo', ':java8demo', ':java8demo2', ':amsdemo', ':aopdemo', ':aoplibrary', ':cardviewpager', ':safedemo', ':ndkproject', ':creditsesameringview', ':creditsesameringview', ':smartmenu'
+include ':app', ':zhujie', ':databinddemo', ':databind2', ':recycleviewbigheadanimator', ':java8demo', ':java8demo', ':java8demo2', ':amsdemo', ':aopdemo', ':aoplibrary', ':cardviewpager', ':safedemo', ':ndkproject', ':creditsesameringview', ':creditsesameringview', ':smartmenu', ':dripintoariver'

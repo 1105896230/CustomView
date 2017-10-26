@@ -47,7 +47,7 @@ public class PageFragment extends Fragment {
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
-        v.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,200));
+        v.setLayoutParams(new RelativeLayout.LayoutParams(200,200));
         return v;
     }
 

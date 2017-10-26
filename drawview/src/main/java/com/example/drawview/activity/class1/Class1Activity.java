@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.drawview.R;
-import com.example.drawview.view.class1.Practice1DrawColorView;
+import com.example.drawview.view.class1.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +24,16 @@ public class Class1Activity extends AppCompatActivity {
 
     {
         pageModels.add(new PageModel(Practice1DrawColorView.class, R.string.title_draw_color));
+        pageModels.add(new PageModel(Practice2DrawCircleView.class, R.string.title_draw_circle));
+        pageModels.add(new PageModel(Practice3DrawRectView.class, R.string.title_draw_rect));
+        pageModels.add(new PageModel(Practice4DrawPointView.class, R.string.title_draw_point));
+        pageModels.add(new PageModel(Practice5DrawOvalView.class, R.string.title_draw_oval));
+        pageModels.add(new PageModel(Practice6DrawLineView.class, R.string.title_draw_line));
+        pageModels.add(new PageModel(Practice7DrawRoundRectView.class, R.string.title_draw_round_rect));
+        pageModels.add(new PageModel(Practice8DrawArcView.class, R.string.title_draw_arc));
+        pageModels.add(new PageModel(Practice9DrawPathView.class, R.string.title_draw_path));
+        pageModels.add(new PageModel(Practice10HistogramView.class, R.string.title_draw_histogram));
+        pageModels.add(new PageModel(Practice11PieChartView.class, R.string.title_draw_pie_chart));
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

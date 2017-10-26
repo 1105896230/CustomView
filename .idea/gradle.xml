@@ -8,22 +8,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/amsdemo" />
             <option value="$PROJECT_DIR$/aopdemo" />
             <option value="$PROJECT_DIR$/aoplibrary" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/cardviewpager" />
-            <option value="$PROJECT_DIR$/creditsesameringview" />
-            <option value="$PROJECT_DIR$/databind2" />
-            <option value="$PROJECT_DIR$/databinddemo" />
-            <option value="$PROJECT_DIR$/dripintoariver" />
-            <option value="$PROJECT_DIR$/java8demo" />
-            <option value="$PROJECT_DIR$/java8demo2" />
-            <option value="$PROJECT_DIR$/ndkproject" />
-            <option value="$PROJECT_DIR$/recycleviewbigheadanimator" />
+            <option value="$PROJECT_DIR$/drawview" />
             <option value="$PROJECT_DIR$/safedemo" />
-            <option value="$PROJECT_DIR$/smartmenu" />
-            <option value="$PROJECT_DIR$/zhujie" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

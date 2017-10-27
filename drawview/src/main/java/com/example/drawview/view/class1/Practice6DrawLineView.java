@@ -2,12 +2,13 @@ package com.example.drawview.view.class1;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
 public class Practice6DrawLineView extends View {
-
+    Paint paint=new Paint();
     public Practice6DrawLineView(Context context) {
         super(context);
     }
@@ -24,6 +25,9 @@ public class Practice6DrawLineView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        paint.setAntiAlias(true);
+        paint.setStrokeWidth(10);
+        canvas.drawLine(180, 100, 540, 450, paint);
 //        练习内容：使用 canvas.drawLine() 方法画直线
     }
 }

@@ -3,14 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CustomView.iml" filepath="$PROJECT_DIR$/CustomView.iml" />
-      <module fileurl="file://F:\workspace\CustomView\CustomView.iml" filepath="F:\workspace\CustomView\CustomView.iml" />
       <module fileurl="file://F:\workspace\CustomView\amsdemo\amsdemo.iml" filepath="F:\workspace\CustomView\amsdemo\amsdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/aopdemo/aopdemo.iml" filepath="$PROJECT_DIR$/aopdemo/aopdemo.iml" />
-      <module fileurl="file://F:\workspace\CustomView\aopdemo\aopdemo.iml" filepath="F:\workspace\CustomView\aopdemo\aopdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/aoplibrary/aoplibrary.iml" filepath="$PROJECT_DIR$/aoplibrary/aoplibrary.iml" />
-      <module fileurl="file://F:\workspace\CustomView\aoplibrary\aoplibrary.iml" filepath="F:\workspace\CustomView\aoplibrary\aoplibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://F:\workspace\CustomView\app\app.iml" filepath="F:\workspace\CustomView\app\app.iml" />
       <module fileurl="file://F:\workspace\CustomView\cardviewpager\cardviewpager.iml" filepath="F:\workspace\CustomView\cardviewpager\cardviewpager.iml" />
       <module fileurl="file://F:\workspace\CustomView\creditsesameringview\creditsesameringview.iml" filepath="F:\workspace\CustomView\creditsesameringview\creditsesameringview.iml" />
       <module fileurl="file://F:\workspace\CustomView\databind2\databind2.iml" filepath="F:\workspace\CustomView\databind2\databind2.iml" />
@@ -22,7 +18,6 @@
       <module fileurl="file://F:\workspace\CustomView\ndkproject\ndkproject.iml" filepath="F:\workspace\CustomView\ndkproject\ndkproject.iml" />
       <module fileurl="file://F:\workspace\CustomView\recycleviewbigheadanimator\recycleviewbigheadanimator.iml" filepath="F:\workspace\CustomView\recycleviewbigheadanimator\recycleviewbigheadanimator.iml" />
       <module fileurl="file://$PROJECT_DIR$/safedemo/safedemo.iml" filepath="$PROJECT_DIR$/safedemo/safedemo.iml" />
-      <module fileurl="file://F:\workspace\CustomView\safedemo\safedemo.iml" filepath="F:\workspace\CustomView\safedemo\safedemo.iml" />
       <module fileurl="file://F:\workspace\CustomView\smartmenu\smartmenu.iml" filepath="F:\workspace\CustomView\smartmenu\smartmenu.iml" />
       <module fileurl="file://F:\workspace\CustomView\zhujie\zhujie.iml" filepath="F:\workspace\CustomView\zhujie\zhujie.iml" />
     </modules>

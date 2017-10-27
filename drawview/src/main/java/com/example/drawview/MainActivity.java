@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.drawview.activity.class2.Class2Activity;
 import com.example.drawview.activity.class1.Class1Activity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.btn1).setOnClickListener(this);
+        findViewById(R.id.btn2).setOnClickListener(this);
     }
 
     @Override
@@ -21,6 +23,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        switch (view.getId()){
            case R.id.btn1:
                startActivity(new Intent(this, Class1Activity.class));
+               break;
+           case R.id.btn2:
+               startActivity(new Intent(this, Class2Activity.class));
                break;
        }
     }

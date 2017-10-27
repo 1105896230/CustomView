@@ -1,22 +1,23 @@
-package com.example.drawview.activity.class1;
+package com.example.drawview.activity.class2;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
 import android.widget.RelativeLayout;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import static com.example.drawview.activity.class1.Class1Activity.pageModels;
+import static com.example.drawview.activity.class2.Class2Activity.pageModels;
+
 
 public class PageFragment extends Fragment {
+    private View view;
+
     private int postion;
     public static PageFragment newInstance(int i) {
         PageFragment fragment = new PageFragment();

@@ -9,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.drawview.R;
-import com.example.drawview.view.class4.Practice02ClipPathView;
 import com.example.drawview.view.class4.Practice03TranslateView;
 import com.example.drawview.view.class4.*;
 

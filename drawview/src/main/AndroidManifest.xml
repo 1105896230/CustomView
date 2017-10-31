@@ -13,8 +13,9 @@
         <activity android:name=".activity.class1.Class1Activity" />
         <activity android:name=".activity.class2.Class2Activity"/>
         <activity android:name=".activity.class3.Class3Activity"/>
+        <activity android:name=".activity.class4.Class4Activity"/>
         <activity
-            android:name=".activity.class4.Class4Activity"
+            android:name=".activity.class5.Class5Activity"
             android:label="@string/title_activity_class3"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

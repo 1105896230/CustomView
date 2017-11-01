@@ -7,14 +7,5 @@
     android:layout_height="match_parent"
     tools:context="com.example.drawview.MainActivity">
 
-<Button
-    android:id="@+id/btn1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="练习1"/>
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="练习2"/>
+
 </LinearLayout>

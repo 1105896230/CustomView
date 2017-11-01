@@ -14,19 +14,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.btn1).setOnClickListener(this);
-        findViewById(R.id.btn2).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
        switch (view.getId()){
-           case R.id.btn1:
-               startActivity(new Intent(this, Class1Activity.class));
-               break;
-           case R.id.btn2:
-               startActivity(new Intent(this, Class2Activity.class));
-               break;
+
        }
     }
 }
